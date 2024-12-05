@@ -3,48 +3,51 @@ const db = require('../models/dbConnect');
 class repositorioCurso{
     async findAll(){
         const row = await db.qry(
-            `SELECT * FROM cursos`
+            `SELECT * FROM cursos
+            WHERE cursos.vis = 1;`
         )
         return row;
     }
 
     async findById(id){
         const row = await db.qry(
-            `SELECT * FROM cursos WHERE cursos.id_curso = ?;
+            `SELECT * FROM cursos
+            WHERE cursos.id_curso = ? AND cursos.vis = 1;
             `,
             [id]
         )
         return row;
     }
 
-    async create(nome, cargaHoraria, turno, tipo){
+    async create(nome, cargaHoraria, tipo, turno){
         const row = await db.qry(
-            `INSERT INTO cursos (nome_curso, carga_horaria, turno, tipo)
-            VALUES (?, ?, ?, ?);
+            `INSERT INTO cursos (nome_curso, carga_horaria, vis, curso_tipo, curso_turno)
+            VALUES (?, ?, 1, ?, ?);
             `,
-            [nome, cargaHoraria, turno, tipo] 
+            [nome, cargaHoraria, tipo, turno] 
         );
         return row;
     }
 
-    async update(id, nome, cargaHoraria, turno, tipo){
+    async update(id, nome, cargaHoraria, tipo, turno){
         const row = await db.qry(
             `UPDATE cursos SET
                 nome_curso = ?,
                 carga_horaria = ?,
-                turno = ?,
-                tipo = ?
-            WHERE id_curso = ?;
+                curso_tipo = ?,
+                curso_turno = ?
+            WHERE id_curso = ? AND vis = 1;
             `,
-            [nome, cargaHoraria, turno, tipo, id]
+            [nome, cargaHoraria, tipo, turno, id]
         ); 
         return row;
     }
 
     async delete(id){
         const row = await db.qry(
-            `DELETE FROM cursos
-            WHERE id_curso = ?;
+            `UPDATE cursos SET
+                vis = 0
+            WHERE id_curso = ? AND vis = 1;
             `,
             [id]
         );

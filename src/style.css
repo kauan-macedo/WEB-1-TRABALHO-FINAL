@@ -1,0 +1,9 @@
+body {
+	width: 100%;
+	background-image: black;
+}
+
+.boxtable {
+	height: 40%;
+	overflow-y: scroll;
+}
