@@ -3,6 +3,7 @@ const alunoRep = require('../repositories/repositorioAluno');
 class alunoCont{
     async index(request, response){
         const alunos = await alunoRep.findAll();
+        console.log(alunos);
         response
             .status(200)
             .render('listar_alunos', {alunos: alunos});
@@ -16,7 +17,7 @@ class alunoCont{
         }
         response
             .status(200)
-            .render('editar_alunos', aluno);
+            .render('exibir_aluno', {aluno: aluno});
     }
 
     async store(request, response){

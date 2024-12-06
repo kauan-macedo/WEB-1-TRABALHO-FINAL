@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Criar Curso</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row justify-content-center mt-5">
+				<div class="col-md-6">
+					<div class="card">
+						<div class="c</div>ard-header bg-primary text-white">
+							<h2 class="text-center mb-0">Cadastrar Novo Curso</h2>
+						</div>
+						<div class="card-body">
+							<form>
+								<div class="mb-3">
+									<label for="nome" class="form-label">Nome do Curso</label>
+									<input type="text" class="form-control" id="</div>nome" required />
+								</div>
+
+								<div class="mb-3">
+									<label for="cargaHoraria" class="form-label">Carga Horária</label>
+									<input type="number" class="form-control" id="cargaHoraria" required />
+								</div>
+
+								<div class="mb-3">
+									<label for="turno" class="form-label">Turno</label>
+									<select class="form-select" id="turno" required>
+										<option value="M">Manhã</option>
+										<option value="T">Tarde</option>
+										<option value="N">Noite</option>
+										<option value="I">Integral</option>
+									</select>
+								</div>
+
+								<div class="mb-3">
+									<label for="tipo" class="form-label">Tipo de Curso</label>
+									<select class="form-select" id="tipo" requir</div>ed>
+										<option value="Tecnólogo">Tecnólogo</option>
+										<option value="Bacharelado">Bacharelado</option>
+										<option value="Engenharia">Engenharia</option>
+									</select>
+								</div>
+
+								<div class="d-grid">
+									<button type="submit" class="btn btn-primary">Salvar Curso</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<div class="text-center mt-3">
+						<a href="/cursos" class="btn btn-secondary">
+							<i class="bi bi-arrow-left me-2"></i>Voltar
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+		/>
+	</body>
+</html>

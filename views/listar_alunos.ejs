@@ -49,19 +49,26 @@
 											<td><%= row.email_aluno %></td>
 											<td><%= row.nome_curso %></td>
 											<td>
-											<span class="badge bg-success">Ativa</span>
-										</td>
-										<td>
-											<div class="btn-group" role="group">
-												<a href="editar_alunos.html" class="btn btn-sm btn-primary">
-													<i class="bi bi-pencil"></i>
-												</a>
-												<button class="btn btn-sm btn-danger">
-													<i class="bi bi-trash"></i>
-												</button>
-											</div>
-										</td>
-									</tr>
+												<% if (row.estado_matricula == "Ativa") { %>
+													<span class="badge bg-success"><%= row.estado_matricula %></span>
+												<% } else if (row.estado_matricula == "Cancelada") { %>
+													<span class="badge bg-danger"><%= row.estado_matricula %></span>
+												<% } else { %>
+													<span class="badge bg-warning text-dark"><%= row.estado_matricula %></span>
+												<% } %>	
+
+											</td>
+											<td>
+												<div class="btn-group" role="group">
+													<a href="/alunos/<%= row.id_aluno%>" class="btn btn-sm btn-primary">
+														<i class="bi bi-pencil"></i>
+													</a>
+													<button class="btn btn-sm btn-danger">
+														<i class="bi bi-trash"></i>
+													</button>
+												</div>
+											</td>
+										</tr>
 									<% }); %>
 								</tbody>
 							</table>

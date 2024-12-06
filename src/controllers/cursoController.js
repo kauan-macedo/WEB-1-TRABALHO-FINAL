@@ -5,7 +5,7 @@ class cursoCont{
         const cursos = await cursoRep.findAll();
         response
             .status(200)
-            .render('listar_cursos', cursos);
+            .render('listar_cursos', {cursos: cursos});
     }
 
     async show(request, response){
@@ -16,7 +16,7 @@ class cursoCont{
         }
         response
             .status(200)
-            .render('editar_cursos', curso);
+            .render('exibir_curso', {curso: curso});
     }
 
     async store(request, response){
