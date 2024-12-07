@@ -54,6 +54,14 @@ class repositorioCurso{
         return row;
         
     }
+
+    async findMatriculas(){
+        const row = await db.qry(
+            `SELECT * FROM matriculas;
+            `
+        );
+        return row;
+    }
 }
 
 module.exports = new repositorioCurso();

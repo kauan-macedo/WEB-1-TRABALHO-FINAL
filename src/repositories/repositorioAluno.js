@@ -14,7 +14,8 @@ class repositorioAluno{
                 cursos.curso_turno
             FROM alunos
             JOIN cursos ON alunos.id_curso = cursos.id_curso
-            WHERE alunos.vis = 1 AND cursos.vis = 1;
+            WHERE alunos.vis = 1 AND cursos.vis = 1
+            ORDER BY alunos.id_aluno;
             `
         )
         return row;

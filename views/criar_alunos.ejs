@@ -18,35 +18,31 @@
 							<h2 class="text-center mb-0">Cadastrar Novo Aluno</h2>
 						</div>
 						<div class="card-body">
-							<form>
+							<form action="/alunos/novo" method="post">
 								<div class="mb-3">
 									<label for="nome" class="form-label">Nome Completo</label>
-									<input type="text" class="form-control" id="nome" required />
+									<input type="text" class="form-control" id="nome" name="nome" required />
 								</div>
 
 								<div class="mb-3">
 									<label for="email" class="form-label">E-mail</label>
-									<input type="email" class="form-control" id="email" required />
+									<input type="email" class="form-control" id="email" name="email" required />
 								</div>
 
 								<div class="mb-3">
 									<label for="curso" class="form-label">Curso</label>
-									<select class="form-select" id="curso" required>
-										<option value="">Selecione um curso</option>
-										<option value="1">Engenharia de Software</option>
-										<option value="2">Análise de Sistemas</option>
+									<select class="form-select" id="curso" name="curso" required>
+										<option value="" selected>Selecione um curso</option>
+										<% cursos.forEach((row, index) => { %>
+											<option value="<%= row.id_curso %>"><%= row.nome_curso %></option>	
+										<% }); %>
 									</select>
 								</div>
 
 								<div class="mb-3">
-									<label for="status" class="form-label">Telefone</label>
-									<select class="form-select" id="status" required>
-										<option value="Ativa">Ativa</option>
-										<option value="Trancada">Trancada</option>
-										<option value="Cancelada">Cancelada</option>
-									</select>
+									<label for="tel" class="form-label">Telefone</label>
+									<input type="text" class="form-control" id="tel" name="tel"/>
 								</div>
-
 								<div class="d-grid">
 									<button type="submit" class="btn btn-primary">Salvar Aluno</button>
 								</div>

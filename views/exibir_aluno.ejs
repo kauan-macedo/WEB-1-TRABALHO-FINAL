@@ -18,32 +18,44 @@
 							<h2 class="text-center mb-0">Cadastrar Novo Aluno</h2>
 						</div>
 						<div class="card-body">
-							<form>
+							<form action="/update/alunos/<%= aluno.id_aluno %>" method="post">
 								<div class="mb-3">
 									<label for="nome" class="form-label">Nome Completo</label>
-									<input type="text" class="form-control" id="nome" required />
+									<input type="text" class="form-control" id="nome" name="nome" value="<%= aluno.nome_aluno %>" required />
 								</div>
 
 								<div class="mb-3">
 									<label for="email" class="form-label">E-mail</label>
-									<input type="email" class="form-control" id="email" required />
+									<input type="email" class="form-control" id="email" name="email" value="<%= aluno.email_aluno %>" required />
 								</div>
 
 								<div class="mb-3">
 									<label for="curso" class="form-label">Curso</label>
-									<select class="form-select" id="curso" required>
-										<option value="">Selecione um curso</option>
-										<option value="1">Engenharia de Software</option>
-										<option value="2">Análise de Sistemas</option>
+									<select class="form-select" id="curso" name="curso" required>
+										<% cursos.forEach((row, index) => { %>
+											<% if(row.nome_curso == cursoAluno) { %>
+												<option value="<%= row.id_curso %>" selected><%= row.nome_curso %></option>
+											<% } else {%>
+												<option value="<%= row.id_curso %>"><%= row.nome_curso %></option>
+											<% } %>	
+										<% }); %>
 									</select>
 								</div>
 
 								<div class="mb-3">
-									<label for="status" class="form-label">Telefone</label>
-									<select class="form-select" id="status" required>
-										<option value="Ativa">Ativa</option>
-										<option value="Trancada">Trancada</option>
-										<option value="Cancelada">Cancelada</option>
+									<label for="tel" class="form-label">Telefone</label>
+									<input type="text" class="form-control" id="tel" name="tel" value="<%= aluno.tel_aluno %>"/>
+								</div>
+								<div class="mb-3">
+									<label for="status" class="form-label">Matrícula</label>
+									<select class="form-select" id="status" name="status" required>
+										<% matriculas.forEach((row, index) => { %>
+											<% if (row.estado_matricula == aluno.estado_matricula) { %>
+												<option value="<%= row.estado_matricula %>" selected><%= row.estado_matricula %></option>
+											<% } else { %>
+												<option value="<%= row.estado_matricula %>"><%= row.estado_matricula %></option>
+											<% } %>
+										<% }); %>
 									</select>
 								</div>
 
