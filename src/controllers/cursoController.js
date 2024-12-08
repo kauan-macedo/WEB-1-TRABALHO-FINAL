@@ -15,14 +15,15 @@ class cursoCont {
 					<meta http-equiv="refresh" content="0; url='/cursos/'" />`);
 		}
 
-		const [tiposCursos] = await cursoRep.findTipos();
-		const [turnosCursos] = await cursoRep.findTurnos();
-		const [{ tipo_curso, turno_curso }] = curso;
+		const tiposCursos = await cursoRep.findTipos();
+		const turnosCursos = await cursoRep.findTurnos();
+		const { curso_tipo, curso_turno } = curso;
+		console.log(tiposCursos, turnosCursos)
 
 		response.status(200).render('exibir_curso', {
 			curso: curso,
-			tipoCurso: tipo_curso,
-			turnoCurso: turno_curso,
+			tipoCurso: curso_tipo,
+			turnoCurso: curso_turno,
 			tipos: tiposCursos,
 			turnos: turnosCursos,
 		});

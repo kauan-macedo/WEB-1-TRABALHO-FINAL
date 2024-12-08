@@ -47,9 +47,9 @@
 									<label for="turno" class="form-label">Turno</label>
 									<select class="form-select" id="turno" required>
 										<option value="M">Manhã</option>
-										<% turnos.forEach((row, index) => { %> <% if(row.curso_turno ==
-										turnoCurso) { %>
-										<option value="<%= row.curso_turno %>" selected>
+										<% turnos.forEach((row, index) => { %>
+											<% if(row.curso_turno ==turnoCurso) { %>
+											<option value="<%= row.curso_turno %>" selected>
 											<%= row.curso_turno %>
 										</option>
 										<% } else {%>
