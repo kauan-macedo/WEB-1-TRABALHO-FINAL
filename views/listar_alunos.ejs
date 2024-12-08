@@ -27,7 +27,7 @@
 										<th>ID</th>
 										<th>Nome</th>
 										<th>E-mail</th>
-										<th>Curso</th>
+										<th>Curso</th> 
 										<th>Status</th>
 										<th>Ações</th>
 									</tr>
@@ -51,12 +51,14 @@
 											</td>
 											<td>
 												<div class="btn-group" role="group">
-													<a href="/alunos/<%= row.id_aluno%>" class="btn btn-sm btn-primary">
+        											<a href="/alunos/<%= row.id_aluno%>" class="btn btn-sm btn-primary">
 														<i class="bi bi-pencil"></i>
 													</a>
-													<button class="btn btn-sm btn-danger">
-														<i class="bi bi-trash"></i>
-													</button>
+													<form action="/delete/alunos/<%= row.id_aluno %>" method="POST" style="display: inline;">
+														<button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este aluno?')">
+															<i class="bi bi-trash"></i>
+														</button>
+													</form>
 												</div>
 											</td>
 										</tr>
