@@ -26,7 +26,7 @@ routes.post('/cursos/novo', cursoCont.store);
 routes.post('/update/cursos/:id', cursoCont.update);
 routes.post('/delete/cursos/:id', cursoCont.delete);
 routes.use('', (req, res) => {
-	res.status(404).render('404'); // Retorna a página de recurso não encontrado.
+	res.status(404).render('404', {erro: 'Recurso não encontrado!'}); // Retorna a página de recurso não encontrado.
 });
 
 module.exports = routes;

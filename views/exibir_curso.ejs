@@ -45,7 +45,7 @@
 
 								<div class="mb-3">
 									<label for="turno" class="form-label">Turno</label>
-									<select class="form-select" id="turno" required>
+									<select class="form-select" id="turno" name="turno" required>
 										<option value="M">Manhã</option>
 										<% turnos.forEach((row, index) => { %>
 											<% if(row.curso_turno ==turnoCurso) { %>
@@ -60,7 +60,7 @@
 
 								<div class="mb-3">
 									<label for="tipo" class="form-label">Tipo de Curso</label>
-									<select class="form-select" id="tipo" required>
+									<select class="form-select" id="tipo" name="tipo" required>
 										<option value="Tecnólogo">Tecnólogo</option>
 										<% tipos.forEach((row, index) => { %> <% if(row.curso_tipo ==
 										tipoCurso) { %>
