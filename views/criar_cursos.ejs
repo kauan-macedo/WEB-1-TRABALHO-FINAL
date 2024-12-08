@@ -14,37 +14,38 @@
 			<div class="row justify-content-center mt-5">
 				<div class="col-md-6">
 					<div class="card">
-						<div class="c</div>ard-header bg-primary text-white">
+						<div class="card-header bg-primary text-white">
 							<h2 class="text-center mb-0">Cadastrar Novo Curso</h2>
 						</div>
 						<div class="card-body">
-							<form>
+							<form action="/cursos/novo" method="post">
 								<div class="mb-3">
 									<label for="nome" class="form-label">Nome do Curso</label>
-									<input type="text" class="form-control" id="</div>nome" required />
+									<input type="text" class="form-control" id="nome" name="nome" required />
 								</div>
 
 								<div class="mb-3">
 									<label for="cargaHoraria" class="form-label">Carga Horária</label>
-									<input type="number" class="form-control" id="cargaHoraria" required />
+									<input type="number" class="form-control" id="cargaHoraria" name="cargaHoraria" required />
 								</div>
 
 								<div class="mb-3">
 									<label for="turno" class="form-label">Turno</label>
-									<select class="form-select" id="turno" required>
-										<option value="M">Manhã</option>
-										<option value="T">Tarde</option>
-										<option value="N">Noite</option>
-										<option value="I">Integral</option>
+									<select class="form-select" id="turno" name="turno" required>
+										<option value="">Selecione o turno</option>
+										<% turnos.forEach((row, index) => { %>
+											<option value="<%= row.curso_turno %>"><%= row.curso_turno %></option>
+										<% }); %>
 									</select>
 								</div>
 
 								<div class="mb-3">
 									<label for="tipo" class="form-label">Tipo de Curso</label>
-									<select class="form-select" id="tipo" requir</div>ed>
-										<option value="Tecnólogo">Tecnólogo</option>
-										<option value="Bacharelado">Bacharelado</option>
-										<option value="Engenharia">Engenharia</option>
+									<select class="form-select" id="tipo" name="tipo" required>
+										<option value="">Selecione o tipo</option>
+										<% tipos.forEach((row, index) => { %>
+											<option value="<%= row.curso_tipo %>"><%= row.curso_tipo %></option>
+										<% }); %>
 									</select>
 								</div>
 

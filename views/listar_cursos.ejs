@@ -50,9 +50,11 @@
 											>
 												<i class="bi bi-pencil"></i>
 											</a>
-											<button class="btn btn-sm btn-danger">
-												<i class="bi bi-trash"></i>
-											</button>
+											<form action="/delete/cursos/<%= row.id_curso %>" method="POST" style="display: inline;">
+												<button type="submit" class="btn btn-sm btn-danger" onclick="return confirm(`Tem certeza que deseja excluir o curso '<%= row.nome_curso %>' e todos os seus alunos?`)">
+													<i class="bi bi-trash"></i>
+												</button>
+											</form>
 										</div>
 									</td>
 								</tr>
@@ -61,7 +63,7 @@
 						</table>
 
 						<% } else { %>
-						<h1>Nenhum curso encontrado na base de dados!</h1>
+							<h1 class="mb-4 text-center">Nenhum curso encontrado na base de dados!</h1>
 						<% } %>
 					</div>
 

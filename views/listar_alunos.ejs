@@ -54,8 +54,9 @@
         											<a href="/alunos/<%= row.id_aluno%>" class="btn btn-sm btn-primary">
 														<i class="bi bi-pencil"></i>
 													</a>
-													<form action="/delete/alunos/<%= row.id_aluno %>" method="POST" style="display: inline;">
-														<button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este aluno?')">
+													<form action="/delete/alunos/<%= row.id_aluno %>?_method=DELETE" method="POST" style="display: inline;">
+														<button type="submit" class="btn btn-sm btn-danger" id="del-btn" data-doc="<%= row.id_aluno %>"
+															onclick="return confirm(`Tem certeza que deseja excluir o(a) aluno(a) '<%= row.nome_aluno %>'?`)">
 															<i class="bi bi-trash"></i>
 														</button>
 													</form>
@@ -66,7 +67,7 @@
 								</tbody>
 							</table>
 						<% } else { %>
-							<h1>Nenhum aluno encontrado na base de dados!</h1>
+							<h1 class="mb-4 text-center">Nenhum aluno encontrado na base de dados!</h1>
 						<% } %>
 					</div>
 					<div class="text-center mt-3">
@@ -78,6 +79,17 @@
 			</div>
 		</div>
 
+		<!-- <script>
+			const register = document.getElementById('del-btn');
+			register.addEventListener('click', (event) =>{
+				const endpoint = `/alunos/${register.dataset.doc}`;
+				fetch(endpoint, {
+					method: 'DELETE'
+				})
+				.then(()=>{})
+				.catch(err => console.log(err));
+			});
+		</script> -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 		<link
 			rel="stylesheet"

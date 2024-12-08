@@ -62,6 +62,28 @@ class repositorioCurso{
         );
         return row;
     }
+
+    async findTipos(){
+        const row = await db.qry(
+            `SELECT * FROM tiposcursos;
+            `
+        );
+        return row;
+    }
+
+    async findTurnos(){
+        const row = await db.qry(
+            `SELECT * FROM turnoscursos;
+            `
+        );
+        return row;
+    }
+
+    async deleteAlunosByCourse(idCurso){
+        `UPDATE alunos, cursos SET
+            alunos.vis = 0
+            WHERE alunos.id_curso = cursos.id_curso`
+    }
 }
 
 module.exports = new repositorioCurso();
