@@ -26,7 +26,13 @@
 
 								<div class="mb-3">
 									<label for="cargaHoraria" class="form-label">Carga Horária</label>
-									<input type="number" class="form-control" id="cargaHoraria" name="cargaHoraria" required />
+									<input
+										type="number"
+										class="form-control"
+										id="cargaHoraria"
+										name="cargaHoraria"
+										required
+									/>
 								</div>
 
 								<div class="mb-3">
@@ -34,7 +40,7 @@
 									<select class="form-select" id="turno" name="turno" required>
 										<option value="">Selecione o turno</option>
 										<% turnos.forEach((row, index) => { %>
-											<option value="<%= row.curso_turno %>"><%= row.curso_turno %></option>
+										<option value="<%= row.curso_turno %>"><%= row.curso_turno %></option>
 										<% }); %>
 									</select>
 								</div>
@@ -44,7 +50,7 @@
 									<select class="form-select" id="tipo" name="tipo" required>
 										<option value="">Selecione o tipo</option>
 										<% tipos.forEach((row, index) => { %>
-											<option value="<%= row.curso_tipo %>"><%= row.curso_tipo %></option>
+										<option value="<%= row.curso_tipo %>"><%= row.curso_tipo %></option>
 										<% }); %>
 									</select>
 								</div>

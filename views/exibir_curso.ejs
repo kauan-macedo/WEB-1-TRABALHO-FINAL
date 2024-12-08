@@ -21,25 +21,40 @@
 							<form action="/update/cursos/<%= curso.id_curso %>" method="post">
 								<div class="mb-3">
 									<label for="nome" class="form-label">Nome do Curso</label>
-									<input type="text" class="form-control" id="nome" name="nome" value="<%= curso.nome_curso %>" required />
+									<input
+										type="text"
+										class="form-control"
+										id="nome"
+										name="nome"
+										value="<%= curso.nome_curso %>"
+										required
+									/>
 								</div>
 
 								<div class="mb-3">
 									<label for="cargaHoraria" class="form-label">Carga Horária</label>
-									<input type="number" class="form-control" id="cargaHoraria" name="cargaHoraria" value="<%= curso.carga_horaria %>" required />
+									<input
+										type="number"
+										class="form-control"
+										id="cargaHoraria"
+										name="cargaHoraria"
+										value="<%= curso.carga_horaria %>"
+										required
+									/>
 								</div>
 
 								<div class="mb-3">
 									<label for="turno" class="form-label">Turno</label>
 									<select class="form-select" id="turno" required>
 										<option value="M">Manhã</option>
-										<% turnos.forEach((row, index) => { %>
-											<% if(row.curso_turno == turnoCurso) { %>
-												<option value="<%= row.curso_turno %>" selected><%= row.curso_turno %></option>
-											<% } else {%>
-												<option value="<%= row.curso_turno %>"><%= row.curso_turno %></option>
-											<% } %>	
-										<% }); %>
+										<% turnos.forEach((row, index) => { %> <% if(row.curso_turno ==
+										turnoCurso) { %>
+										<option value="<%= row.curso_turno %>" selected>
+											<%= row.curso_turno %>
+										</option>
+										<% } else {%>
+										<option value="<%= row.curso_turno %>"><%= row.curso_turno %></option>
+										<% } %> <% }); %>
 									</select>
 								</div>
 
@@ -47,13 +62,14 @@
 									<label for="tipo" class="form-label">Tipo de Curso</label>
 									<select class="form-select" id="tipo" required>
 										<option value="Tecnólogo">Tecnólogo</option>
-										<% tipos.forEach((row, index) => { %>
-											<% if(row.curso_tipo == tipoCurso) { %>
-												<option value="<%= row.curso_tipo %>" selected><%= row.curso_tipo %></option>
-											<% } else {%>
-												<option value="<%= row.curso_tipo %>"><%= row.curso_tipo %></option>
-											<% } %>	
-										<% }); %>
+										<% tipos.forEach((row, index) => { %> <% if(row.curso_tipo ==
+										tipoCurso) { %>
+										<option value="<%= row.curso_tipo %>" selected>
+											<%= row.curso_tipo %>
+										</option>
+										<% } else {%>
+										<option value="<%= row.curso_tipo %>"><%= row.curso_tipo %></option>
+										<% } %> <% }); %>
 									</select>
 								</div>
 
