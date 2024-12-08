@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.set("view engine", "ejs");
 
+app.use(express.static('public')); // Isso permite o envio de arquivos estáticos referenciados nas nossas páginas
 app.use(routes);
 
 app.listen(port, () => {
