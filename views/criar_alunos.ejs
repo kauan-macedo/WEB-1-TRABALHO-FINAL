@@ -26,7 +26,13 @@
 
 								<div class="mb-3">
 									<label for="email" class="form-label">E-mail</label>
-									<input type="email" class="form-control" id="email" name="email" required />
+									<input
+										type="email"
+										class="form-control"
+										id="email"
+										name="email"
+										required
+									/>
 								</div>
 
 								<div class="mb-3">
@@ -34,17 +40,19 @@
 									<select class="form-select" id="curso" name="curso" required>
 										<option value="" selected>Selecione um curso</option>
 										<% cursos.forEach((row, index) => { %>
-											<option value="<%= row.id_curso %>"><%= row.nome_curso %></option>	
+										<option value="<%= row.id_curso %>"><%= row.nome_curso %></option>
 										<% }); %>
 									</select>
 								</div>
 
 								<div class="mb-3">
 									<label for="tel" class="form-label">Telefone</label>
-									<input type="text" class="form-control" id="tel" name="tel"/>
+									<input type="text" class="form-control" id="tel" name="tel" />
 								</div>
 								<div class="d-grid">
-									<button type="submit" class="btn btn-primary" id="save-btn">Salvar Aluno</button>
+									<button type="submit" class="btn btn-primary" id="save-btn">
+										Salvar Aluno
+									</button>
 								</div>
 							</form>
 						</div>
