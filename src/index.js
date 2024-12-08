@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 const db = require('./models/dbConnect');
@@ -11,7 +10,6 @@ db.testConnection().catch(err => {
 });
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 
