@@ -18,7 +18,6 @@ class cursoCont {
 		const tiposCursos = await cursoRep.findTipos();
 		const turnosCursos = await cursoRep.findTurnos();
 		const { curso_tipo, curso_turno } = curso;
-		console.log(tiposCursos, turnosCursos)
 
 		response.status(200).render('exibir_curso', {
 			curso: curso,
@@ -53,14 +52,8 @@ class cursoCont {
 						<meta http-equiv="refresh" content="0; url='/cursos/'" />`);
 		}
 
-		const { nome_curso, carga_horaria, curso_tipo, curso_turno } = request.body;
-		const { changedRows } = await cursoRep.update(
-			id,
-			nome_curso,
-			carga_horaria,
-			curso_tipo,
-			curso_turno
-		);
+		const { nome, cargaHoraria, tipo, turno } = request.body;
+		const { changedRows } = await cursoRep.update(id,nome, cargaHoraria, tipo, turno);
 		if (!changedRows) {
 			return response.status(200).send(`<script>alert("Nenhuma alteração foi feita!");</script>
 						<meta http-equiv="refresh" content="0; url='/cursos/${id}'" />`);
