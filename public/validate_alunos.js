@@ -49,7 +49,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
 		curso.style = "border: 2px solid green;";
 	}
 
-	if (telValor != null && (telValor.length < 11 || telValor.length > 12)) {
+	if (telValor != null && (telValor.length < 11 || telValor.length > 12) || telValor < 0) {
 		e.preventDefault();
 		setError(tel, 'Telefone deve ter 11 dígitos: (xx)xxxxx-xxxx');
 	}else{
