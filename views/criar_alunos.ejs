@@ -18,36 +18,41 @@
 							<h2 class="text-center mb-0">Cadastrar Novo Aluno</h2>
 						</div>
 						<div class="card-body">
-							<form action="/alunos/novo" method="post">
+							<form action="/alunos/novo" method="post" id="form-criar-aluno">
 								<div class="mb-3">
 									<label for="nome" class="form-label">Nome Completo</label>
-									<input type="text" class="form-control" id="nome" name="nome" required />
+									<input type="text" class="form-control" id="nome" name="nome" placeholder="Seu Nome" required />
+									<div class="error"></div>
 								</div>
 
 								<div class="mb-3">
 									<label for="email" class="form-label">E-mail</label>
 									<input
-										type="email"
+										type="text"
 										class="form-control"
 										id="email"
 										name="email"
+										placeholder="abc@mail.com"
 										required
 									/>
+									<div class="error"></div>
 								</div>
 
 								<div class="mb-3">
 									<label for="curso" class="form-label">Curso</label>
-									<select class="form-select" id="curso" name="curso" required>
+									<select class="form-select" id="curso" name="curso">
 										<option value="" selected>Selecione um curso</option>
 										<% cursos.forEach((row, index) => { %>
 										<option value="<%= row.id_curso %>"><%= row.nome_curso %></option>
 										<% }); %>
 									</select>
+									<div class="error"></div>
 								</div>
 
 								<div class="mb-3">
-									<label for="tel" class="form-label">Telefone</label>
-									<input type="text" class="form-control" id="tel" name="tel" />
+									<label for="tel" class="form-label">Telefone (somente os dígitos)</label>
+									<input type="text" class="form-control" id="tel" name="tel" placeholder="(xx)x xxxx-xxxx"/>
+									<div class="error"></div>
 								</div>
 								<div class="d-grid">
 									<button type="submit" class="btn btn-primary" id="save-btn">
@@ -72,5 +77,24 @@
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
 		/>
 		<script src="/validate_alunos.js"></script>
+		<style>
+			.mb-3.success input{
+				border: 2px solid green;
+				border-radius: 5px;
+			}
+
+			.mb-3.error input{
+				border: 2px solid red;
+				border-radius: 5px;
+			}
+
+			.error{
+				color: red;
+			}
+
+			#curso{
+				color: black;
+			}
+		</style>
 	</body>
 </html>

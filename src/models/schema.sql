@@ -84,7 +84,7 @@ insert into alunos (
 values (
         'João Pedro Gonçalves Cardoso',
         'joao.mail@ufpr.br',
-        '(41)91111-1111',
+        '41911111111',
         1,
         1,
         'Ativa'
@@ -92,7 +92,7 @@ values (
     (
         'Kauan Kelvin',
         'kauan.mail@ufpr.br',
-        '(41)92222-2222',
+        '41922222222',
         1,
         1,
         'Ativa'
@@ -100,15 +100,15 @@ values (
     (
         'João Gabriel Fanti',
         'fanti.mail@ufpr.br',
-        '(41)93333-3333',
+        '41933333333',
         1,
-        2,
+        1,
         'Ativa'
     ),
     (
         'Fulano de Tal',
         'fulano.mail@ufpr.br',
-        '(41)94444-4444',
+        '41944444444',
         1,
         3,
         'Trancada'
@@ -116,10 +116,66 @@ values (
     (
         'Ciclano de Tal',
         'ciclano.mail@ufpr.br',
-        '(41)95555-5555',
+        '41955555555',
+        1,
+        2,
+        'Cancelada'
+    ),
+    (
+        'Maria',
+        'maria.mail@ufpr.br',
+        '41966666666',
         1,
         3,
+        'Ativa'
+    ),
+    (
+        'Ana',
+        'ana.mail@ufpr.br',
+        '41977777777',
+        1,
+        2,
+        'Trancada'
+    ),
+    (
+        'Batman',
+        'batman.mail@ufpr.br',
+        '41988888888',
+        1,
+        1,
         'Cancelada'
+    ),
+    (
+        'Lucas',
+        'lucas.mail@ufpr.br',
+        '41999999999',
+        1,
+        3,
+        'Ativa'
+    ),
+    (
+        'Roberta',
+        'roberta.mail@ufpr.br',
+        '41901010101',
+        1,
+        1,
+        'Ativa'
+    ),
+    (
+        'Denise',
+        'denise.mail@ufpr.br',
+        '41902020202',
+        1,
+        2,
+        'Trancada'
+    ),
+    (
+        'Daniel',
+        'daniel.mail@ufpr.br',
+        '41903030303',
+        1,
+        3,
+        'Ativa'
     );
 show tables;
 select *

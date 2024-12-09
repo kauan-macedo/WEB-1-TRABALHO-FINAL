@@ -1,30 +1,60 @@
 document.querySelector('form').addEventListener('submit', function (e) {
-	const nome = document.getElementById('nome').value.trim();
-	const email = document.getElementById('email').value.trim();
-	const curso = document.getElementById('curso').value;
-	const tel = document.getElementById('tel').value.trim();
+	const nome = document.getElementById('nome');
+	const email = document.getElementById('email');
+	const curso = document.getElementById('curso');
+	const tel = document.getElementById('tel');
+	const matricula = document.getElementById('status');
 
-	if (!nome.match(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,}$/)) {
-		e.preventDefault();
-		alert('Nome deve conter apenas letras e ter pelo menos 3 caracteres');
-		return;
+	const nomeValor = nome.value.trim();
+	const emailValor = email.value.trim();
+	const cursoValor = curso.value;
+	const telValor = tel.value.trim();
+
+	function setError(element, message){
+		inputControl = element.parentElement;
+		errorDisplay = inputControl.querySelector('.error');
+		errorDisplay.innerText = message;
+		inputControl.classList.add('error');
+		inputControl.classList.remove('success');
 	}
 
-	if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-		e.preventDefault();
-		alert('Email inválido');
-		return;
+	function setSuccess(element, message){
+		inputControl = element.parentElement;
+		errorDisplay = inputControl.querySelector('.error');
+		errorDisplay.innerText = message;
+		inputControl.classList.add('success');
+		inputControl.classList.remove('error');
 	}
 
-	if (!curso) {
+	if (!nomeValor.match(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,}$/)) {
 		e.preventDefault();
-		alert('Selecione um curso');
-		return;
+		setError(nome, 'Nome deve conter apenas letras e ter pelo menos 3 caracteres');
+	}else{
+		setSuccess(nome, '');
 	}
 
-	if (tel && tel.length < 11) {
+	if (!emailValor.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
 		e.preventDefault();
-		alert('Telefone deve ter no mínimo 11 dígitos numéricos');
-		return;
+		setError(email, 'Email inválido');
+	}else{
+		setSuccess(email, '');
 	}
+
+	if (!cursoValor) {
+		e.preventDefault();
+		setError(curso, 'Selecione um curso');
+		curso.style = "border: 2px solid red;";
+	}else{
+		setSuccess(curso, '');
+		curso.style = "border: 2px solid green;";
+	}
+
+	if (telValor != null && (telValor.length < 11 || telValor.length > 12)) {
+		e.preventDefault();
+		setError(tel, 'Telefone deve ter 11 dígitos: (xx)xxxxx-xxxx');
+	}else{
+		setSuccess(tel, '');
+	}
+
+	matricula.style = "border: 2px solid green;";
 });
